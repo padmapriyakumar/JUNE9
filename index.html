@@ -1,41 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>KPRCAS2025</title>
-    <link rel="stylesheet" href="./CSS/style.css">
-    <style>
-        h2{
-            color: darkgreen;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Student Form</title>
+  <style>
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color:pink
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-container {
+      background-color:blueviolet;
+      padding: 20px 30px;
+      border-radius: 5px;
+      width: 200px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color:orange;
+      color:black;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color:blueviolet;
+    }
+
+    .output {
+      margin-top: 30px;
+      background-color: #e7f3fe;
+      padding: 20px;
+      border-left: 5px solid #2196F3;
+    }
+  </style>
 </head>
 <body>
-    <h1 style="color: red; font-size: 20px;">Hello KPR</h1>
-    <h2>CT</h2>
-    <h3>IT</h3>
-    <h4>BCA</h4>
-    <h5>HELLO</h5>
-    <h6>HELLO</h6>
-    <p class="header"> <b>Lorem</b>
-        <i>ipsum</i>
-        <strong>dolor</strong> sit <br>amet consectetur adipisicing elit. Illo veritatis ex tempora a odit harum labore
-        animi velit <em><u>recusandae</u></em> <q>praesentium, consectetur, fuga asperiores, eius quas eligendi esse?</q>  At, eius a.
-        Fugiat ipsam dignissimos quas. Neque vel in fugit dolor sit beatae dolorum, error possimus tempora maxime saepe
-        quis itaque. Autem nemo suscipit est provident dolores consectetur alias consequuntur deleniti deserunt!
-    </p>
-    <a class="Link Link-one"  href="https://www.instagram.com/" target="_blank">INSTAGRAM</a>
-    <a class="Link" href="home.html">Home</a>
 
-    <ol>
-        <li id="one">IT</li>
-        <li id="two">BCA</li>
-        <li id="three">CT</li>
-    </ol>
-    <ul>
-        <li id="four">BCA</li>
-        <li id="five">CT</li>
-        <li id="six">IT</li>
-    </ul>
+  <h2>Student Information Form</h2>
+
+  <div class="form-container">
+    <form id="studentForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="class">Class:</label>
+      <input type="text" id="class" required>
+
+      <label for="rollnumber">Roll Number:</label>
+      <input type="text" id="rollnumber" required>
+
+      <label for="department">Department:</label>
+      <input type="text" id="department" required>
+
+      <label for="college">college</label>
+      <input type="text" id="college"required>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    document.getElementById("studentForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting to server
+
+      // Get form values
+      const name = document.getElementById("name").value;
+      const studentClass = document.getElementById("class").value;
+      const roll = document.getElementById("rollnumber").value;
+      const dept = document.getElementById("department").value;
+
+      // Display the data
+      document.getElementById("output").innerHTML = `
+        <h3>Submitted Information:</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Class:</strong> ${studentClass}</p>
+        <p><strong>Roll Number:</strong> ${roll}</p>
+        <p><strong>Department:</strong> ${dept}</p>
+      `;
+    });
+  </script>
+
 </body>
-
 </html>
+
+
